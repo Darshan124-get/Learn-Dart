@@ -1,0 +1,312 @@
+[
+  {
+    "id": "1",
+    "moduleId": "1",
+    "title": "Introduction to Dart Quiz",
+    "questions": [
+      {
+        "id": "1",
+        "question": "Dart is mainly used with which framework?",
+        "type": "mcq",
+        "options": ["React Native", "Flutter", "Angular", "Django"],
+        "correctAnswer": 1,
+        "explanation": "Dart is primarily used with Flutter for building cross-platform mobile, web, and desktop applications."
+      },
+      {
+        "id": "2",
+        "question": "What is the entry point of a Dart program?",
+        "type": "mcq",
+        "options": ["start()", "main()", "init()", "begin()"],
+        "correctAnswer": 1,
+        "explanation": "The main() function is the entry point where execution begins in every Dart program."
+      },
+      {
+        "id": "3",
+        "question": "Which function is used to display output in Dart?",
+        "type": "mcq",
+        "options": ["display()", "show()", "print()", "output()"],
+        "correctAnswer": 2,
+        "explanation": "The print() function is used to display text output to the console in Dart."
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "moduleId": "2",
+    "title": "Dart Basics Quiz",
+    "questions": [
+      {
+        "id": "4",
+        "question": "Which keyword is used to declare a variable without specifying its type in Dart?",
+        "type": "mcq",
+        "options": ["var", "int", "String", "final"],
+        "correctAnswer": 0,
+        "explanation": "The 'var' keyword allows Dart to infer the type automatically based on the assigned value."
+      },
+      {
+        "id": "5",
+        "question": "What data type is used for whole numbers in Dart?",
+        "type": "mcq",
+        "options": ["double", "int", "num", "integer"],
+        "correctAnswer": 1,
+        "explanation": "The 'int' data type is used for whole numbers (integers) in Dart."
+      },
+      {
+        "id": "6",
+        "question": "Which operator is used for the remainder operation?",
+        "type": "mcq",
+        "options": ["%", "/", "//", "mod"],
+        "correctAnswer": 0,
+        "explanation": "The '%' operator returns the remainder of a division operation."
+      },
+      {
+        "id": "7",
+        "question": "What is the correct syntax for a single-line comment in Dart?",
+        "type": "mcq",
+        "options": ["# comment", "// comment", "/* comment */", "<!-- comment -->"],
+        "correctAnswer": 1,
+        "explanation": "Single-line comments in Dart use '//' followed by the comment text."
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "moduleId": "3",
+    "title": "Control Flow Quiz",
+    "questions": [
+      {
+        "id": "8",
+        "question": "Which loop runs at least once even if the condition is false?",
+        "type": "mcq",
+        "options": ["for", "while", "do-while", "none"],
+        "correctAnswer": 2,
+        "explanation": "The do-while loop executes the code block first, then checks the condition, so it runs at least once."
+      },
+      {
+        "id": "9",
+        "question": "What is the purpose of the 'break' statement in a switch case?",
+        "type": "mcq",
+        "options": ["To continue to the next case", "To exit the switch statement", "To restart the switch", "To skip the current case"],
+        "correctAnswer": 1,
+        "explanation": "The 'break' statement exits the switch statement and prevents fall-through to the next case."
+      },
+      {
+        "id": "10",
+        "question": "Which loop is best for iterating through a collection?",
+        "type": "mcq",
+        "options": ["for", "while", "do-while", "for-in"],
+        "correctAnswer": 3,
+        "explanation": "The for-in loop is specifically designed for iterating through collections like lists and sets."
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "moduleId": "4",
+    "title": "Functions Quiz",
+    "questions": [
+      {
+        "id": "11",
+        "question": "What does 'void' mean when used as a return type?",
+        "type": "mcq",
+        "options": ["Returns null", "Returns nothing", "Returns void", "Returns undefined"],
+        "correctAnswer": 1,
+        "explanation": "The 'void' keyword indicates that a function does not return any value."
+      },
+      {
+        "id": "12",
+        "question": "Which parameter type allows calling a function with named arguments?",
+        "type": "mcq",
+        "options": ["Positional", "Named", "Optional", "Required"],
+        "correctAnswer": 1,
+        "explanation": "Named parameters (enclosed in curly braces {}) allow functions to be called with named arguments."
+      },
+      {
+        "id": "13",
+        "question": "What is the syntax for an arrow function in Dart?",
+        "type": "mcq",
+        "options": ["=>", "->", "=>=", "==>"],
+        "correctAnswer": 0,
+        "explanation": "Arrow functions in Dart use the '=>' syntax for simple expressions."
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "moduleId": "5",
+    "title": "Collections Quiz",
+    "questions": [
+      {
+        "id": "14",
+        "question": "Which Dart collection does not allow duplicate values?",
+        "type": "mcq",
+        "options": ["List", "Set", "Map", "Array"],
+        "correctAnswer": 1,
+        "explanation": "Sets are collections that only contain unique elements - no duplicates are allowed."
+      },
+      {
+        "id": "15",
+        "question": "How do you access an element in a List?",
+        "type": "mcq",
+        "options": ["list.get(index)", "list[index]", "list.at(index)", "list.element(index)"],
+        "correctAnswer": 1,
+        "explanation": "List elements are accessed using square brackets with the index: list[index]."
+      },
+      {
+        "id": "16",
+        "question": "What is a Map in Dart?",
+        "type": "mcq",
+        "options": ["A collection of values", "A collection of key-value pairs", "A collection of keys", "A collection of indices"],
+        "correctAnswer": 1,
+        "explanation": "A Map is a collection of key-value pairs where each key maps to exactly one value."
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "moduleId": "6",
+    "title": "Object-Oriented Programming Quiz",
+    "questions": [
+      {
+        "id": "17",
+        "question": "What is a class in Dart?",
+        "type": "mcq",
+        "options": ["A function", "A blueprint for creating objects", "A variable", "A loop"],
+        "correctAnswer": 1,
+        "explanation": "A class is a blueprint or template for creating objects that define their properties and behaviors."
+      },
+      {
+        "id": "18",
+        "question": "What is inheritance in OOP?",
+        "type": "mcq",
+        "options": ["Creating multiple objects", "A class inheriting properties from another class", "A function calling another function", "A loop inside another loop"],
+        "correctAnswer": 1,
+        "explanation": "Inheritance allows a class to inherit properties and methods from another class (parent class)."
+      },
+      {
+        "id": "19",
+        "question": "What is a constructor?",
+        "type": "mcq",
+        "options": ["A special method to create objects", "A regular function", "A variable", "A loop"],
+        "correctAnswer": 0,
+        "explanation": "A constructor is a special method that is called when creating an object to initialize its properties."
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "moduleId": "7",
+    "title": "Error Handling Quiz",
+    "questions": [
+      {
+        "id": "20",
+        "question": "Which keyword is used to handle exceptions in Dart?",
+        "type": "mcq",
+        "options": ["try", "catch", "finally", "All of the above"],
+        "correctAnswer": 3,
+        "explanation": "Dart uses try, catch, and finally keywords together to handle exceptions properly."
+      },
+      {
+        "id": "21",
+        "question": "What does the 'finally' block do?",
+        "type": "mcq",
+        "options": ["Handles exceptions", "Always executes", "Throws exceptions", "Catches errors"],
+        "correctAnswer": 1,
+        "explanation": "The 'finally' block always executes, regardless of whether an exception occurred or not."
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "moduleId": "8",
+    "title": "Null Safety Quiz",
+    "questions": [
+      {
+        "id": "22",
+        "question": "Which operator is used in Dart for null-coalescing?",
+        "type": "mcq",
+        "options": ["??", "!", "?", "&&"],
+        "correctAnswer": 0,
+        "explanation": "The '??' operator is used for null-coalescing, providing a default value when a variable is null."
+      },
+      {
+        "id": "23",
+        "question": "What does the '?' operator indicate in Dart?",
+        "type": "mcq",
+        "options": ["Non-nullable type", "Nullable type", "Optional parameter", "Required parameter"],
+        "correctAnswer": 1,
+        "explanation": "The '?' operator indicates that a variable can be null (nullable type)."
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "moduleId": "9",
+    "title": "Async Programming Quiz",
+    "questions": [
+      {
+        "id": "24",
+        "question": "What is a Future in Dart?",
+        "type": "mcq",
+        "options": ["A past value", "A present value", "A value that will be available in the future", "A null value"],
+        "correctAnswer": 2,
+        "explanation": "A Future represents a value that will be available at some point in the future, typically from an asynchronous operation."
+      },
+      {
+        "id": "25",
+        "question": "Which keywords are used for asynchronous programming in Dart?",
+        "type": "mcq",
+        "options": ["async and await", "sync and wait", "future and promise", "then and catch"],
+        "correctAnswer": 0,
+        "explanation": "The 'async' and 'await' keywords are used for asynchronous programming in Dart."
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "moduleId": "10",
+    "title": "Final Comprehensive Quiz",
+    "questions": [
+      {
+        "id": "26",
+        "question": "Which of the following is NOT a valid Dart data type?",
+        "type": "mcq",
+        "options": ["int", "double", "String", "integer"],
+        "correctAnswer": 3,
+        "explanation": "Dart uses 'int' for integers, not 'integer'. The valid numeric types are 'int' and 'double'."
+      },
+      {
+        "id": "27",
+        "question": "What will be the output of: print(5 / 2);",
+        "type": "mcq",
+        "options": ["2", "2.5", "3", "2.0"],
+        "correctAnswer": 1,
+        "explanation": "The '/' operator performs floating-point division, so 5 / 2 = 2.5."
+      },
+      {
+        "id": "28",
+        "question": "Which collection type maintains insertion order?",
+        "type": "mcq",
+        "options": ["Set", "Map", "List", "All of the above"],
+        "correctAnswer": 2,
+        "explanation": "Lists maintain insertion order, while Sets and Maps do not guarantee order."
+      },
+      {
+        "id": "29",
+        "question": "What is the correct way to declare a constant in Dart?",
+        "type": "mcq",
+        "options": ["const int x = 5;", "final int x = 5;", "Both A and B", "None of the above"],
+        "correctAnswer": 2,
+        "explanation": "Both 'const' and 'final' can be used to declare constants, but they have different use cases."
+      },
+      {
+        "id": "30",
+        "question": "Which operator is used for logical AND in Dart?",
+        "type": "mcq",
+        "options": ["&", "&&", "and", "All of the above"],
+        "correctAnswer": 1,
+        "explanation": "The '&&' operator is used for logical AND operations in Dart."
+      }
+    ]
+  }
+]

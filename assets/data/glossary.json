@@ -1,0 +1,212 @@
+[
+  {
+    "term": "Dart",
+    "definition": "A client-optimized programming language for fast apps on any platform, developed by Google.",
+    "category": "Language"
+  },
+  {
+    "term": "Flutter",
+    "definition": "Google's UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.",
+    "category": "Framework"
+  },
+  {
+    "term": "Variable",
+    "definition": "A named storage location that holds data of a specific type.",
+    "category": "Basics"
+  },
+  {
+    "term": "Function",
+    "definition": "A reusable block of code that performs a specific task and can be called from other parts of the program.",
+    "category": "Functions"
+  },
+  {
+    "term": "Class",
+    "definition": "A blueprint or template for creating objects that define their properties and behaviors.",
+    "category": "OOP"
+  },
+  {
+    "term": "Object",
+    "definition": "An instance of a class that has state (attributes) and behavior (methods).",
+    "category": "OOP"
+  },
+  {
+    "term": "List",
+    "definition": "An ordered collection of objects where each object can be accessed by its index position.",
+    "category": "Collections"
+  },
+  {
+    "term": "Set",
+    "definition": "An unordered collection of unique objects where each object appears only once.",
+    "category": "Collections"
+  },
+  {
+    "term": "Map",
+    "definition": "A collection of key-value pairs where each key maps to exactly one value.",
+    "category": "Collections"
+  },
+  {
+    "term": "Constructor",
+    "definition": "A special method that is called when creating an object to initialize its properties.",
+    "category": "OOP"
+  },
+  {
+    "term": "Inheritance",
+    "definition": "A mechanism where a class inherits properties and methods from another class (parent class).",
+    "category": "OOP"
+  },
+  {
+    "term": "Polymorphism",
+    "definition": "The ability of objects of different types to be treated as objects of a common type.",
+    "category": "OOP"
+  },
+  {
+    "term": "Exception",
+    "definition": "An event that occurs during the execution of a program that disrupts the normal flow of instructions.",
+    "category": "Error Handling"
+  },
+  {
+    "term": "Try-Catch",
+    "definition": "A mechanism for handling exceptions by trying a block of code and catching any exceptions that occur.",
+    "category": "Error Handling"
+  },
+  {
+    "term": "Null Safety",
+    "definition": "A feature that prevents null reference errors by making nullability explicit in the type system.",
+    "category": "Language Features"
+  },
+  {
+    "term": "Future",
+    "definition": "A value that will be available at some point in the future, typically from an asynchronous operation.",
+    "category": "Async Programming"
+  },
+  {
+    "term": "Async/Await",
+    "definition": "Keywords used for asynchronous programming to write code that can wait for operations to complete.",
+    "category": "Async Programming"
+  },
+  {
+    "term": "Operator",
+    "definition": "A symbol that tells the compiler to perform specific mathematical or logical operations.",
+    "category": "Basics"
+  },
+  {
+    "term": "Loop",
+    "definition": "A control structure that repeats a block of code until a specified condition is met.",
+    "category": "Control Flow"
+  },
+  {
+    "term": "Conditional Statement",
+    "definition": "A statement that executes different code blocks based on whether a condition is true or false.",
+    "category": "Control Flow"
+  },
+  {
+    "term": "Parameter",
+    "definition": "A variable that receives values when a function is called.",
+    "category": "Functions"
+  },
+  {
+    "term": "Return Value",
+    "definition": "The value that a function sends back to the calling code after completing its task.",
+    "category": "Functions"
+  },
+  {
+    "term": "Type Inference",
+    "definition": "The ability of the compiler to automatically determine the type of a variable based on its value.",
+    "category": "Language Features"
+  },
+  {
+    "term": "Static Typing",
+    "definition": "A typing system where variable types are known at compile time.",
+    "category": "Language Features"
+  },
+  {
+    "term": "Dynamic Typing",
+    "definition": "A typing system where variable types are determined at runtime.",
+    "category": "Language Features"
+  },
+  {
+    "term": "Generic",
+    "definition": "A feature that allows writing code that works with different types while maintaining type safety.",
+    "category": "Advanced"
+  },
+  {
+    "term": "Mixin",
+    "definition": "A way to reuse code in multiple class hierarchies without multiple inheritance.",
+    "category": "Advanced"
+  },
+  {
+    "term": "Interface",
+    "definition": "A contract that defines what methods a class must implement.",
+    "category": "OOP"
+  },
+  {
+    "term": "Abstract Class",
+    "definition": "A class that cannot be instantiated and may contain abstract methods that must be implemented by subclasses.",
+    "category": "OOP"
+  },
+  {
+    "term": "Package",
+    "definition": "A collection of Dart libraries and tools that can be shared and reused across projects.",
+    "category": "Development"
+  },
+  {
+    "term": "Library",
+    "definition": "A collection of related code that can be imported and used in other Dart programs.",
+    "category": "Development"
+  },
+  {
+    "term": "Import",
+    "definition": "A statement that brings code from a library into the current file.",
+    "category": "Development"
+  },
+  {
+    "term": "Export",
+    "definition": "A statement that makes code from a library available to other libraries that import it.",
+    "category": "Development"
+  },
+  {
+    "term": "Main Function",
+    "definition": "The entry point of every Dart program where execution begins.",
+    "category": "Basics"
+  },
+  {
+    "term": "Print Function",
+    "definition": "A built-in function used to display text output to the console.",
+    "category": "Basics"
+  },
+  {
+    "term": "Comment",
+    "definition": "Non-executable text that explains what the code does and is ignored by the compiler.",
+    "category": "Basics"
+  },
+  {
+    "term": "Syntax",
+    "definition": "The set of rules that define the structure and meaning of statements in a programming language.",
+    "category": "Basics"
+  },
+  {
+    "term": "Compile",
+    "definition": "The process of converting source code into machine code or bytecode that can be executed.",
+    "category": "Development"
+  },
+  {
+    "term": "Runtime",
+    "definition": "The period during which a program is executing, as opposed to compile time.",
+    "category": "Development"
+  },
+  {
+    "term": "Debug",
+    "definition": "The process of finding and fixing errors or bugs in code.",
+    "category": "Development"
+  },
+  {
+    "term": "IDE",
+    "definition": "Integrated Development Environment - a software application that provides comprehensive facilities for software development.",
+    "category": "Development"
+  },
+  {
+    "term": "SDK",
+    "definition": "Software Development Kit - a collection of tools and libraries for developing software applications.",
+    "category": "Development"
+  }
+]

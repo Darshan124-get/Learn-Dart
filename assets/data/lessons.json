@@ -1,0 +1,204 @@
+[
+  {
+    "id": "1",
+    "moduleId": "1",
+    "title": "What is Dart?",
+    "content": "Dart is a programming language developed by Google, mainly used with Flutter for building mobile, web, and desktop applications. It's designed to be easy to learn and use, with features like null safety, strong typing, and excellent performance.",
+    "definition": "Dart is a client-optimized programming language for fast apps on any platform.",
+    "explanation": "Dart was created by Google in 2011 and has evolved to become the primary language for Flutter development. It combines the best features of other languages like Java, C#, and JavaScript while adding its own unique capabilities.",
+    "syntax": "// Basic Dart program structure\nvoid main() {\n  // Your code here\n}",
+    "example": "void main() {\n  print('Hello, Dart!');\n  print('Welcome to Learn Dart Offline!');\n}",
+    "keyPoints": [
+      "Developed by Google",
+      "Mainly used with Flutter",
+      "Supports multiple platforms",
+      "Strong typing and null safety",
+      "Easy to learn and use"
+    ]
+  },
+  {
+    "id": "2",
+    "moduleId": "1",
+    "title": "Hello World Program",
+    "content": "Every programming journey starts with a 'Hello World' program. In Dart, this is simple and straightforward using the print() function.",
+    "definition": "A basic program that outputs 'Hello World' to demonstrate the fundamental structure of a Dart program.",
+    "explanation": "The main() function is the entry point of every Dart program. It's where execution begins. The print() function displays text to the console.",
+    "syntax": "void main() {\n  print('Your message here');\n}",
+    "example": "void main() {\n  print('Hello, World!');\n  print('This is my first Dart program');\n}",
+    "keyPoints": [
+      "main() is the entry point",
+      "print() displays output",
+      "Semicolons end statements",
+      "Code goes inside curly braces"
+    ]
+  },
+  {
+    "id": "3",
+    "moduleId": "2",
+    "title": "Variables and Data Types",
+    "content": "Variables are containers for storing data values. Dart supports several built-in data types including numbers, strings, booleans, and more.",
+    "definition": "Variables are named storage locations that hold data of specific types.",
+    "explanation": "Dart is a statically typed language, meaning variables have types that are known at compile time. You can use explicit type declarations or let Dart infer the type using 'var'.",
+    "syntax": "// Explicit type declaration\nint age = 25;\nString name = 'John';\nbool isStudent = true;\n\n// Type inference with var\nvar city = 'New York';\nvar temperature = 23.5;",
+    "example": "void main() {\n  // Numbers\n  int age = 21;\n  double height = 5.9;\n  \n  // Strings\n  String name = 'Alice';\n  var greeting = 'Hello';\n  \n  // Boolean\n  bool isStudent = true;\n  \n  // Print variables\n  print('Name: \\$name');\n  print('Age: \\$age');\n  print('Height: \\$height');\n  print('Is Student: \\$isStudent');\n}",
+    "keyPoints": [
+      "int for whole numbers",
+      "double for decimal numbers",
+      "String for text",
+      "bool for true/false values",
+      "var for type inference"
+    ]
+  },
+  {
+    "id": "4",
+    "moduleId": "2",
+    "title": "Operators",
+    "content": "Operators are special symbols that perform operations on variables and values. Dart supports arithmetic, relational, logical, and assignment operators.",
+    "definition": "Operators are symbols that tell the compiler to perform specific mathematical or logical operations.",
+    "explanation": "Dart provides a rich set of operators for different purposes. Understanding operators is crucial for writing effective Dart code.",
+    "syntax": "// Arithmetic: +, -, *, /, %\n// Relational: ==, !=, <, >, <=, >=\n// Logical: &&, ||, !\n// Assignment: =, +=, -=, *=, /=",
+    "example": "void main() {\n  int a = 10;\n  int b = 3;\n  \n  // Arithmetic operators\n  print('Addition: \\${a + b}');\n  print('Subtraction: \\${a - b}');\n  print('Multiplication: \\${a * b}');\n  print('Division: \\${a / b}');\n  print('Modulus: \\${a % b}');\n  \n  // Relational operators\n  print('a > b: \\${a > b}');\n  print('a == b: \\${a == b}');\n  \n  // Logical operators\n  bool x = true;\n  bool y = false;\n  print('x && y: \\${x && y}');\n  print('x || y: \\${x || y}');\n}",
+    "keyPoints": [
+      "Arithmetic: +, -, *, /, %",
+      "Relational: ==, !=, <, >, <=, >=",
+      "Logical: &&, ||, !",
+      "Assignment: =, +=, -=, *=, /="
+    ]
+  },
+  {
+    "id": "5",
+    "moduleId": "2",
+    "title": "Comments",
+    "content": "Comments are lines of text that are ignored by the Dart compiler. They help document your code and make it more readable for other developers.",
+    "definition": "Comments are non-executable text that explains what the code does.",
+    "explanation": "Good commenting practices make code more maintainable and help other developers understand your logic. Dart supports both single-line and multi-line comments.",
+    "syntax": "// This is a single-line comment\n\n/*\nThis is a multi-line comment\nthat can span multiple lines\n*/\n\n/// This is a documentation comment\n/// Used for documenting functions and classes",
+    "example": "void main() {\n  // This is a single-line comment\n  int age = 25; // Variable declaration with comment\n  \n  /*\n  This is a multi-line comment\n  explaining the following code block\n  */\n  String name = 'John';\n  \n  /// This function prints a greeting\n  /// Takes a name parameter\n  void greet(String name) {\n    print('Hello, \\$name!');\n  }\n  \n  greet(name);\n}",
+    "keyPoints": [
+      "// for single-line comments",
+      "/* */ for multi-line comments",
+      "/// for documentation comments",
+      "Comments are ignored by compiler",
+      "Use comments to explain complex logic"
+    ]
+  },
+  {
+    "id": "6",
+    "moduleId": "3",
+    "title": "Conditional Statements",
+    "content": "Conditional statements allow your program to make decisions based on different conditions. Dart supports if, else, and switch statements.",
+    "definition": "Conditional statements execute different code blocks based on whether a condition is true or false.",
+    "explanation": "Conditional statements are fundamental to programming as they allow programs to respond differently to different situations. They make programs dynamic and interactive.",
+    "syntax": "// if statement\nif (condition) {\n  // code to execute\n}\n\n// if-else statement\nif (condition) {\n  // code if true\n} else {\n  // code if false\n}\n\n// switch statement\nswitch (variable) {\n  case value1:\n    // code\n    break;\n  case value2:\n    // code\n    break;\n  default:\n    // default code\n}",
+    "example": "void main() {\n  int age = 18;\n  String grade = 'A';\n  \n  // if-else statement\n  if (age >= 18) {\n    print('You are an adult');\n  } else {\n    print('You are a minor');\n  }\n  \n  // switch statement\n  switch (grade) {\n    case 'A':\n      print('Excellent!');\n      break;\n    case 'B':\n      print('Good!');\n      break;\n    case 'C':\n      print('Average');\n      break;\n    default:\n      print('Need improvement');\n  }\n}",
+    "keyPoints": [
+      "if executes code when condition is true",
+      "else executes when condition is false",
+      "switch compares a variable to multiple values",
+      "break is needed in switch cases",
+      "default handles unmatched cases"
+    ]
+  },
+  {
+    "id": "7",
+    "moduleId": "3",
+    "title": "Loops",
+    "content": "Loops allow you to execute a block of code multiple times. Dart supports for, while, and do-while loops, as well as for-in loops for collections.",
+    "definition": "Loops are control structures that repeat a block of code until a specified condition is met.",
+    "explanation": "Loops are essential for performing repetitive tasks efficiently. They help reduce code duplication and make programs more efficient.",
+    "syntax": "// for loop\nfor (int i = 0; i < 5; i++) {\n  // code to repeat\n}\n\n// while loop\nwhile (condition) {\n  // code to repeat\n}\n\n// do-while loop\ndo {\n  // code to repeat\n} while (condition);\n\n// for-in loop\nfor (var item in collection) {\n  // code for each item\n}",
+    "example": "void main() {\n  // for loop\n  print('For loop:');\n  for (int i = 1; i <= 3; i++) {\n    print('Count: \\$i');\n  }\n  \n  // while loop\n  print('\\nWhile loop:');\n  int count = 1;\n  while (count <= 3) {\n    print('Count: \\$count');\n    count++;\n  }\n  \n  // for-in loop\n  print('\\nFor-in loop:');\n  List<String> fruits = ['apple', 'banana', 'orange'];\n  for (String fruit in fruits) {\n    print('Fruit: \\$fruit');\n  }\n}",
+    "keyPoints": [
+      "for loop: known number of iterations",
+      "while loop: condition-based repetition",
+      "do-while: runs at least once",
+      "for-in: iterate through collections",
+      "Use break to exit loops early"
+    ]
+  },
+  {
+    "id": "8",
+    "moduleId": "4",
+    "title": "Defining Functions",
+    "content": "Functions are reusable blocks of code that perform specific tasks. They help organize code and make it more modular and maintainable.",
+    "definition": "A function is a block of code that performs a specific task and can be called from other parts of the program.",
+    "explanation": "Functions are fundamental building blocks in Dart. They allow you to break down complex problems into smaller, manageable pieces. Functions can take parameters and return values.",
+    "syntax": "// Function with return type\nreturnType functionName(parameters) {\n  // function body\n  return value;\n}\n\n// Function without return value\nvoid functionName(parameters) {\n  // function body\n}\n\n// Arrow function\nreturnType functionName(parameters) => expression;",
+    "example": "void main() {\n  // Call functions\n  greet('Alice');\n  int sum = add(5, 3);\n  print('Sum: \\$sum');\n  \n  // Arrow function\n  int multiply = (int a, int b) => a * b;\n  print('Product: \\${multiply(4, 6)}');\n}\n\n// Function without return value\nvoid greet(String name) {\n  print('Hello, \\$name!');\n}\n\n// Function with return value\nint add(int a, int b) {\n  return a + b;\n}",
+    "keyPoints": [
+      "Functions group related code together",
+      "Parameters pass data to functions",
+      "Return values send data back",
+      "void means no return value",
+      "Arrow functions for simple expressions"
+    ]
+  },
+  {
+    "id": "9",
+    "moduleId": "4",
+    "title": "Parameters",
+    "content": "Parameters allow functions to receive data from the calling code. Dart supports different types of parameters including positional, named, and optional parameters.",
+    "definition": "Parameters are variables that receive values when a function is called.",
+    "explanation": "Parameters make functions flexible and reusable. Dart offers several ways to pass parameters, each with its own advantages for different use cases.",
+    "syntax": "// Positional parameters\nvoid functionName(type param1, type param2) {}\n\n// Named parameters (optional by default)\nvoid functionName({type param1, type param2}) {}\n\n// Required named parameters\nvoid functionName({required type param1, required type param2}) {}\n\n// Optional positional parameters\nvoid functionName(type param1, [type param2]) {}",
+    "example": "void main() {\n  // Positional parameters\n  greet('Alice', 25);\n  \n  // Named parameters\n  introduce(name: 'Bob', age: 30, city: 'New York');\n  \n  // Required named parameters\n  calculate(required: 10, optional: 5);\n  \n  // Optional positional parameters\n  printInfo('Charlie');\n  printInfo('David', 28);\n}\n\n// Positional parameters\nvoid greet(String name, int age) {\n  print('Hello \\$name, you are \\$age years old');\n}\n\n// Named parameters\nvoid introduce({String? name, int? age, String? city}) {\n  print('Name: \\$name, Age: \\$age, City: \\$city');\n}\n\n// Required named parameters\nvoid calculate({required int required, int? optional}) {\n  print('Required: \\$required, Optional: \\$optional');\n}\n\n// Optional positional parameters\nvoid printInfo(String name, [int? age]) {\n  print('Name: \\$name, Age: \\$age');\n}",
+    "keyPoints": [
+      "Positional: order matters",
+      "Named: order doesn't matter, use {}",
+      "Required: must be provided",
+      "Optional: can be omitted",
+      "Use ? for nullable parameters"
+    ]
+  },
+  {
+    "id": "10",
+    "moduleId": "5",
+    "title": "Lists (Arrays)",
+    "content": "Lists are ordered collections of objects. They are similar to arrays in other languages and are one of the most commonly used data structures in Dart.",
+    "definition": "A List is an ordered collection of objects where each object can be accessed by its index position.",
+    "explanation": "Lists in Dart are dynamic and can grow or shrink in size. They can contain objects of any type, but it's common to use them with a specific type for better performance and type safety.",
+    "syntax": "// Create a list\nList<type> listName = [];\nvar listName = <type>[];\n\n// Initialize with values\nList<type> listName = [value1, value2, value3];\n\n// Access elements\nlistName[index]\n\n// Add elements\nlistName.add(value);\nlistName.insert(index, value);\n\n// Remove elements\nlistName.remove(value);\nlistName.removeAt(index);",
+    "example": "void main() {\n  // Create and initialize a list\n  List<String> fruits = ['apple', 'banana', 'orange'];\n  \n  // Access elements\n  print('First fruit: \\${fruits[0]}');\n  print('List length: \\${fruits.length}');\n  \n  // Add elements\n  fruits.add('grape');\n  fruits.insert(1, 'mango');\n  \n  // Print all fruits\n  print('All fruits:');\n  for (String fruit in fruits) {\n    print('- \\$fruit');\n  }\n  \n  // Remove elements\n  fruits.remove('banana');\n  print('After removing banana: \\$fruits');\n}",
+    "keyPoints": [
+      "Ordered collection with index access",
+      "Dynamic size (can grow/shrink)",
+      "Type-safe with generics",
+      "Common methods: add, remove, insert",
+      "Access with square brackets []"
+    ]
+  },
+  {
+    "id": "11",
+    "moduleId": "5",
+    "title": "Sets",
+    "content": "Sets are unordered collections of unique objects. They are useful when you need to store unique values and don't care about the order.",
+    "definition": "A Set is an unordered collection of unique objects where each object appears only once.",
+    "explanation": "Sets are particularly useful for removing duplicates from lists, checking membership, and performing set operations like union, intersection, and difference.",
+    "syntax": "// Create a set\nSet<type> setName = {};\nvar setName = <type>{};\n\n// Initialize with values\nSet<type> setName = {value1, value2, value3};\n\n// Add elements\nsetName.add(value);\n\n// Remove elements\nsetName.remove(value);\n\n// Check membership\nsetName.contains(value);",
+    "example": "void main() {\n  // Create a set\n  Set<String> colors = {'red', 'green', 'blue'};\n  \n  // Add elements\n  colors.add('yellow');\n  colors.add('red'); // Won't add duplicate\n  \n  print('Colors: \\$colors');\n  print('Number of colors: \\${colors.length}');\n  \n  // Check membership\n  print('Has red: \\${colors.contains('red')}');\n  print('Has purple: \\${colors.contains('purple')}');\n  \n  // Remove elements\n  colors.remove('green');\n  print('After removing green: \\$colors');\n  \n  // Set operations\n  Set<String> primaryColors = {'red', 'blue', 'yellow'};\n  Set<String> secondaryColors = {'green', 'orange', 'purple'};\n  \n  Set<String> allColors = primaryColors.union(secondaryColors);\n  print('All colors: \\$allColors');\n}",
+    "keyPoints": [
+      "Unordered collection",
+      "No duplicate elements",
+      "Fast membership testing",
+      "Useful for removing duplicates",
+      "Set operations: union, intersection, difference"
+    ]
+  },
+  {
+    "id": "12",
+    "moduleId": "5",
+    "title": "Maps (Key-Value pairs)",
+    "content": "Maps are collections of key-value pairs where each key is unique. They are similar to dictionaries in Python or objects in JavaScript.",
+    "definition": "A Map is a collection of key-value pairs where each key maps to exactly one value.",
+    "explanation": "Maps are extremely useful for storing and retrieving data using meaningful keys instead of numeric indices. They provide fast lookup times and are perfect for representing structured data.",
+    "syntax": "// Create a map\nMap<keyType, valueType> mapName = {};\nvar mapName = <keyType, valueType>{};\n\n// Initialize with values\nMap<keyType, valueType> mapName = {\n  'key1': value1,\n  'key2': value2,\n};\n\n// Access values\nmapName['key']\n\n// Add/update values\nmapName['key'] = value;\n\n// Remove values\nmapName.remove('key');",
+    "example": "void main() {\n  // Create a map\n  Map<String, int> ages = {\n    'Alice': 25,\n    'Bob': 30,\n    'Charlie': 22,\n  };\n  \n  // Access values\n  print('Alice\\'s age: \\${ages['Alice']}');\n  print('Bob\\'s age: \\${ages['Bob']}');\n  \n  // Add new entries\n  ages['David'] = 28;\n  ages['Alice'] = 26; // Update existing\n  \n  // Print all entries\n  print('\\nAll ages:');\n  ages.forEach((name, age) {\n    print('\\$name: \\$age years old');\n  });\n  \n  // Check if key exists\n  print('\\nHas Eve: \\${ages.containsKey('Eve')}');\n  \n  // Remove entry\n  ages.remove('Charlie');\n  print('After removing Charlie: \\$ages');\n}",
+    "keyPoints": [
+      "Key-value pairs",
+      "Keys must be unique",
+      "Fast lookup by key",
+      "Useful for structured data",
+      "Access with square brackets []"
+    ]
+  }
+]

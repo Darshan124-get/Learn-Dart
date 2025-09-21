@@ -1,0 +1,173 @@
+[
+  {
+    "id": "1",
+    "title": "Simple Calculator",
+    "description": "Build a basic calculator that can perform arithmetic operations like addition, subtraction, multiplication, and division.",
+    "difficulty": "Beginner",
+    "estimatedTime": "2-3 hours",
+    "features": [
+      "Basic arithmetic operations (+, -, *, /)",
+      "Clear function",
+      "Error handling for division by zero",
+      "User-friendly interface"
+    ],
+    "learningOutcomes": [
+      "Understanding functions and parameters",
+      "Working with user input",
+      "Error handling with try-catch",
+      "Basic UI design principles"
+    ],
+    "codeExample": "void main() {\n  Calculator calc = Calculator();\n  \n  // Example usage\n  print('Addition: \${calc.add(5, 3)}');\n  print('Subtraction: \${calc.subtract(10, 4)}');\n  print('Multiplication: \${calc.multiply(6, 7)}');\n  print('Division: \${calc.divide(15, 3)}');\n}\n\nclass Calculator {\n  double add(double a, double b) => a + b;\n  double subtract(double a, double b) => a - b;\n  double multiply(double a, double b) => a * b;\n  double divide(double a, double b) {\n    if (b == 0) throw Exception('Division by zero!');\n    return a / b;\n  }\n}",
+    "steps": [
+      "Create a Calculator class with methods for each operation",
+      "Implement error handling for division by zero",
+      "Create a main function to test the calculator",
+      "Add user input functionality",
+      "Implement a simple menu system"
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Student Grade Calculator",
+    "description": "Create a program that calculates student grades based on multiple assignments and exams.",
+    "difficulty": "Beginner",
+    "estimatedTime": "3-4 hours",
+    "features": [
+      "Input multiple assignment scores",
+      "Calculate weighted averages",
+      "Determine letter grades",
+      "Display grade summary"
+    ],
+    "learningOutcomes": [
+      "Working with lists and collections",
+      "Understanding loops and iteration",
+      "Implementing conditional logic",
+      "Data validation and input handling"
+    ],
+    "codeExample": "void main() {\n  GradeCalculator calculator = GradeCalculator();\n  \n  // Add assignment scores\n  calculator.addAssignment('Quiz 1', 85, 0.2);\n  calculator.addAssignment('Midterm', 92, 0.3);\n  calculator.addAssignment('Final', 88, 0.5);\n  \n  // Calculate and display final grade\n  double finalGrade = calculator.calculateFinalGrade();\n  String letterGrade = calculator.getLetterGrade(finalGrade);\n  \n  print('Final Grade: \${finalGrade.toStringAsFixed(2)}%');\n  print('Letter Grade: \$letterGrade');\n}\n\nclass GradeCalculator {\n  List<Assignment> assignments = [];\n  \n  void addAssignment(String name, double score, double weight) {\n    assignments.add(Assignment(name, score, weight));\n  }\n  \n  double calculateFinalGrade() {\n    double total = 0;\n    for (var assignment in assignments) {\n      total += assignment.score * assignment.weight;\n    }\n    return total;\n  }\n  \n  String getLetterGrade(double grade) {\n    if (grade >= 90) return 'A';\n    if (grade >= 80) return 'B';\n    if (grade >= 70) return 'C';\n    if (grade >= 60) return 'D';\n    return 'F';\n  }\n}\n\nclass Assignment {\n  String name;\n  double score;\n  double weight;\n  \n  Assignment(this.name, this.score, this.weight);\n}",
+    "steps": [
+      "Create an Assignment class to store assignment data",
+      "Implement a GradeCalculator class with methods for adding assignments",
+      "Create a method to calculate weighted averages",
+      "Implement letter grade determination logic",
+      "Add input validation and error handling"
+    ]
+  },
+  {
+    "id": "3",
+    "title": "To-Do List Manager",
+    "description": "Build a console-based to-do list application that allows users to add, remove, and manage tasks.",
+    "difficulty": "Intermediate",
+    "estimatedTime": "4-5 hours",
+    "features": [
+      "Add new tasks",
+      "Mark tasks as complete",
+      "Remove tasks",
+      "List all tasks",
+      "Filter tasks by status"
+    ],
+    "learningOutcomes": [
+      "Object-oriented programming concepts",
+      "Working with collections and data structures",
+      "Implementing CRUD operations",
+      "User interface design for console applications"
+    ],
+    "codeExample": "void main() {\n  TodoList todoList = TodoList();\n  \n  // Add some tasks\n  todoList.addTask('Learn Dart basics');\n  todoList.addTask('Complete Flutter tutorial');\n  todoList.addTask('Build a mobile app');\n  \n  // Mark a task as complete\n  todoList.completeTask(0);\n  \n  // Display all tasks\n  todoList.displayTasks();\n  \n  // Remove a task\n  todoList.removeTask(1);\n  \n  print('\\nAfter removing a task:');\n  todoList.displayTasks();\n}\n\nclass TodoList {\n  List<Task> tasks = [];\n  \n  void addTask(String description) {\n    tasks.add(Task(description));\n    print('Task added: \$description');\n  }\n  \n  void completeTask(int index) {\n    if (index >= 0 && index < tasks.length) {\n      tasks[index].isCompleted = true;\n      print('Task completed: \${tasks[index].description}');\n    }\n  }\n  \n  void removeTask(int index) {\n    if (index >= 0 && index < tasks.length) {\n      String description = tasks[index].description;\n      tasks.removeAt(index);\n      print('Task removed: \$description');\n    }\n  }\n  \n  void displayTasks() {\n    print('\\n=== TO-DO LIST ===');\n    for (int i = 0; i < tasks.length; i++) {\n      String status = tasks[i].isCompleted ? '[✓]' : '[ ]';\n      print('\${i + 1}. \$status \${tasks[i].description}');\n    }\n  }\n}\n\nclass Task {\n  String description;\n  bool isCompleted;\n  DateTime createdAt;\n  \n  Task(this.description) : isCompleted = false, createdAt = DateTime.now();\n}",
+    "steps": [
+      "Create a Task class with properties for description, completion status, and creation date",
+      "Implement a TodoList class to manage a collection of tasks",
+      "Add methods for adding, completing, and removing tasks",
+      "Create a display method to show all tasks with their status",
+      "Implement a simple menu system for user interaction"
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Number Guessing Game",
+    "description": "Create an interactive number guessing game where the computer generates a random number and the user tries to guess it.",
+    "difficulty": "Beginner",
+    "estimatedTime": "2-3 hours",
+    "features": [
+      "Generate random numbers",
+      "User input validation",
+      "Hint system (higher/lower)",
+      "Score tracking",
+      "Play again functionality"
+    ],
+    "learningOutcomes": [
+      "Working with random numbers",
+      "Implementing game loops",
+      "User input validation",
+      "Basic game logic and flow control"
+    ],
+    "codeExample": "import 'dart:io';\nimport 'dart:math';\n\nvoid main() {\n  NumberGuessingGame game = NumberGuessingGame();\n  game.play();\n}\n\nclass NumberGuessingGame {\n  Random random = Random();\n  int targetNumber = 0;\n  int attempts = 0;\n  int maxAttempts = 7;\n  \n  void play() {\n    print('Welcome to the Number Guessing Game!');\n    print('I\\'m thinking of a number between 1 and 100.');\n    print('You have \$maxAttempts attempts to guess it.\\n');\n    \n    targetNumber = random.nextInt(100) + 1;\n    attempts = 0;\n    \n    while (attempts < maxAttempts) {\n      print('Attempt \${attempts + 1}/\$maxAttempts');\n      print('Enter your guess: ');\n      \n      try {\n        int guess = int.parse(stdin.readLineSync()!);\n        attempts++;\n        \n        if (guess == targetNumber) {\n          print('🎉 Congratulations! You guessed it in \$attempts attempts!');\n          return;\n        } else if (guess < targetNumber) {\n          print('Too low! Try a higher number.\\n');\n        } else {\n          print('Too high! Try a lower number.\\n');\n        }\n      } catch (e) {\n        print('Please enter a valid number.\\n');\n        attempts--; // Don't count invalid input as an attempt\n      }\n    }\n    \n    print('Game over! The number was \$targetNumber.');\n    print('Better luck next time!');\n  }\n}",
+    "steps": [
+      "Import necessary libraries (dart:io for input, dart:math for random numbers)",
+      "Create a NumberGuessingGame class with game logic",
+      "Implement random number generation",
+      "Create a game loop with user input and validation",
+      "Add hint system and attempt tracking",
+      "Implement play again functionality"
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Bank Account Manager",
+    "description": "Build a simple bank account management system with deposit, withdrawal, and balance checking functionality.",
+    "difficulty": "Intermediate",
+    "estimatedTime": "4-5 hours",
+    "features": [
+      "Create bank accounts",
+      "Deposit money",
+      "Withdraw money",
+      "Check balance",
+      "Transaction history",
+      "Account validation"
+    ],
+    "learningOutcomes": [
+      "Object-oriented programming principles",
+      "Encapsulation and data hiding",
+      "Working with lists and collections",
+      "Error handling and validation",
+      "Designing class relationships"
+    ],
+    "codeExample": "void main() {\n  BankAccount account = BankAccount('John Doe', '123456789', 1000.0);\n  \n  print('Account Holder: \${account.accountHolder}');\n  print('Account Number: \${account.accountNumber}');\n  print('Initial Balance: \${account.getBalance()}');\n  \n  // Perform transactions\n  account.deposit(500.0);\n  account.withdraw(200.0);\n  account.withdraw(1500.0); // This should fail\n  \n  // Display transaction history\n  account.displayTransactionHistory();\n}\n\nclass BankAccount {\n  String accountHolder;\n  String accountNumber;\n  double _balance;\n  List<Transaction> _transactions = [];\n  \n  BankAccount(this.accountHolder, this.accountNumber, this._balance);\n  \n  double getBalance() => _balance;\n  \n  bool deposit(double amount) {\n    if (amount > 0) {\n      _balance += amount;\n      _transactions.add(Transaction('Deposit', amount, DateTime.now()));\n      print('Deposited \$${amount.toStringAsFixed(2)}. New balance: \$${_balance.toStringAsFixed(2)}');\n      return true;\n    }\n    print('Invalid deposit amount');\n    return false;\n  }\n  \n  bool withdraw(double amount) {\n    if (amount > 0 && amount <= _balance) {\n      _balance -= amount;\n      _transactions.add(Transaction('Withdrawal', -amount, DateTime.now()));\n      print('Withdrew \$${amount.toStringAsFixed(2)}. New balance: \$${_balance.toStringAsFixed(2)}');\n      return true;\n    }\n    print('Insufficient funds or invalid amount');\n    return false;\n  }\n  \n  void displayTransactionHistory() {\n    print('\\n=== TRANSACTION HISTORY ===');\n    for (var transaction in _transactions) {\n      print('\${transaction.date}: \${transaction.type} \$${transaction.amount.abs().toStringAsFixed(2)}');\n    }\n  }\n}\n\nclass Transaction {\n  String type;\n  double amount;\n  DateTime date;\n  \n  Transaction(this.type, this.amount, this.date);\n}",
+    "steps": [
+      "Create a BankAccount class with private balance and public methods",
+      "Implement deposit and withdrawal methods with validation",
+      "Create a Transaction class to track account activity",
+      "Add transaction history functionality",
+      "Implement proper error handling and user feedback"
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Text Analyzer",
+    "description": "Create a program that analyzes text input and provides statistics like word count, character count, and most frequent words.",
+    "difficulty": "Intermediate",
+    "estimatedTime": "3-4 hours",
+    "features": [
+      "Word count analysis",
+      "Character count (with and without spaces)",
+      "Most frequent words",
+      "Average word length",
+      "Text statistics summary"
+    ],
+    "learningOutcomes": [
+      "String manipulation and processing",
+      "Working with maps for counting",
+      "Sorting and filtering data",
+      "Algorithm implementation",
+      "Data analysis concepts"
+    ],
+    "codeExample": "void main() {\n  String text = 'The quick brown fox jumps over the lazy dog. The dog was not impressed.';\n  \n  TextAnalyzer analyzer = TextAnalyzer(text);\n  \n  print('=== TEXT ANALYSIS ===');\n  print('Original text: \$text\\n');\n  \n  print('Word count: \${analyzer.getWordCount()}');\n  print('Character count (with spaces): \${analyzer.getCharacterCountWithSpaces()}');\n  print('Character count (without spaces): \${analyzer.getCharacterCountWithoutSpaces()}');\n  print('Average word length: \${analyzer.getAverageWordLength().toStringAsFixed(2)}');\n  \n  print('\\nMost frequent words:');\n  analyzer.getMostFrequentWords(5).forEach((word, count) {\n    print('\$word: \$count times');\n  });\n}\n\nclass TextAnalyzer {\n  String text;\n  List<String> words;\n  \n  TextAnalyzer(this.text) {\n    // Clean and split text into words\n    words = text.toLowerCase()\n        .replaceAll(RegExp(r'[^\\w\\s]'), '') // Remove punctuation\n        .split(RegExp(r'\\s+'))\n        .where((word) => word.isNotEmpty)\n        .toList();\n  }\n  \n  int getWordCount() => words.length;\n  \n  int getCharacterCountWithSpaces() => text.length;\n  \n  int getCharacterCountWithoutSpaces() => text.replaceAll(' ', '').length;\n  \n  double getAverageWordLength() {\n    if (words.isEmpty) return 0;\n    int totalLength = words.fold(0, (sum, word) => sum + word.length);\n    return totalLength / words.length;\n  }\n  \n  Map<String, int> getMostFrequentWords(int limit) {\n    Map<String, int> wordCount = {};\n    \n    for (String word in words) {\n      wordCount[word] = (wordCount[word] ?? 0) + 1;\n    }\n    \n    // Sort by count (descending) and take top 'limit' words\n    var sortedEntries = wordCount.entries.toList()\n      ..sort((a, b) => b.value.compareTo(a.value));\n    \n    Map<String, int> result = {};\n    for (int i = 0; i < limit && i < sortedEntries.length; i++) {\n      result[sortedEntries[i].key] = sortedEntries[i].value;\n    }\n    \n    return result;\n  }\n}",
+    "steps": [
+      "Create a TextAnalyzer class that processes input text",
+      "Implement text cleaning and word splitting functionality",
+      "Add methods for counting words, characters, and calculating averages",
+      "Create a word frequency counter using a Map",
+      "Implement sorting to find most frequent words",
+      "Add a comprehensive text statistics display"
+    ]
+  }
+]

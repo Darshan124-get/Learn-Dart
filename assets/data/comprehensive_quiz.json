@@ -1,0 +1,399 @@
+[
+  {
+    "id": "comprehensive_quiz",
+    "title": "Dart Fundamentals Comprehensive Quiz",
+    "description": "Test your knowledge of Dart programming with 30 comprehensive questions covering all fundamentals",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "MCQ",
+        "question": "What is Dart primarily used for?",
+        "options": [
+          "Web development only",
+          "Mobile app development with Flutter",
+          "Desktop applications only",
+          "Server-side programming only"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Dart is primarily used for mobile app development with Flutter, though it can also be used for web and desktop applications."
+      },
+      {
+        "id": "q2",
+        "type": "MCQ",
+        "question": "Which keyword is used to declare a constant in Dart?",
+        "options": [
+          "var",
+          "final",
+          "const",
+          "static"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The 'const' keyword is used to declare compile-time constants in Dart."
+      },
+      {
+        "id": "q3",
+        "type": "MCQ",
+        "question": "What is the correct way to declare a variable in Dart?",
+        "options": [
+          "var name = 'John';",
+          "String name = 'John';",
+          "Both A and B",
+          "None of the above"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Both 'var name = 'John';' and 'String name = 'John';' are correct ways to declare variables in Dart."
+      },
+      {
+        "id": "q4",
+        "type": "MCQ",
+        "question": "Which data type is used for whole numbers in Dart?",
+        "options": [
+          "double",
+          "int",
+          "num",
+          "integer"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The 'int' data type is used for whole numbers in Dart."
+      },
+      {
+        "id": "q5",
+        "type": "MCQ",
+        "question": "What is the output of: print(5 ~/ 2);",
+        "options": [
+          "2.5",
+          "2",
+          "3",
+          "Error"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The ~/ operator performs integer division, so 5 ~/ 2 = 2."
+      },
+      {
+        "id": "q6",
+        "type": "MCQ",
+        "question": "Which operator is used for null-aware access in Dart?",
+        "options": [
+          "?.",
+          "??",
+          "!",
+          "?"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The ?. operator is used for null-aware access in Dart."
+      },
+      {
+        "id": "q7",
+        "type": "MCQ",
+        "question": "What is the correct syntax for a for loop in Dart?",
+        "options": [
+          "for (int i = 0; i < 5; i++) { }",
+          "for (var i in list) { }",
+          "Both A and B",
+          "None of the above"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Both traditional for loops and for-in loops are valid in Dart."
+      },
+      {
+        "id": "q8",
+        "type": "MCQ",
+        "question": "Which keyword is used to define a function in Dart?",
+        "options": [
+          "function",
+          "def",
+          "func",
+          "No special keyword needed"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Dart doesn't require a special keyword to define functions, just specify the return type or use 'void'."
+      },
+      {
+        "id": "q9",
+        "type": "MCQ",
+        "question": "What is the correct way to create a List in Dart?",
+        "options": [
+          "List<String> names = [];",
+          "var names = <String>[];",
+          "var names = [];",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "explanation": "All three ways are correct for creating lists in Dart."
+      },
+      {
+        "id": "q10",
+        "type": "MCQ",
+        "question": "Which method is used to add an element to a List?",
+        "options": [
+          "add()",
+          "append()",
+          "insert()",
+          "Both A and C"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Both add() and insert() methods can be used to add elements to a List."
+      },
+      {
+        "id": "q11",
+        "type": "MCQ",
+        "question": "What is the correct syntax for a Map in Dart?",
+        "options": [
+          "Map<String, int> ages = {};",
+          "var ages = <String, int>{};",
+          "var ages = {};",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "explanation": "All three ways are correct for creating maps in Dart."
+      },
+      {
+        "id": "q12",
+        "type": "MCQ",
+        "question": "Which keyword is used for inheritance in Dart?",
+        "options": [
+          "extends",
+          "implements",
+          "with",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Dart uses 'extends' for inheritance, 'implements' for interface implementation, and 'with' for mixins."
+      },
+      {
+        "id": "q13",
+        "type": "MCQ",
+        "question": "What is the correct way to handle exceptions in Dart?",
+        "options": [
+          "try-catch",
+          "try-catch-finally",
+          "try-on-catch",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Dart supports try-catch, try-catch-finally, and try-on-catch for exception handling."
+      },
+      {
+        "id": "q14",
+        "type": "MCQ",
+        "question": "Which keyword is used to make a class abstract?",
+        "options": [
+          "abstract",
+          "virtual",
+          "interface",
+          "None of the above"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 'abstract' keyword is used to make a class abstract in Dart."
+      },
+      {
+        "id": "q15",
+        "type": "MCQ",
+        "question": "What is the correct syntax for a getter in Dart?",
+        "options": [
+          "get propertyName => value;",
+          "get propertyName { return value; }",
+          "Both A and B",
+          "None of the above"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Both arrow function and block syntax are valid for getters in Dart."
+      },
+      {
+        "id": "q16",
+        "type": "MCQ",
+        "question": "Which operator is used for null coalescing in Dart?",
+        "options": [
+          "?.",
+          "??",
+          "!",
+          "?"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The ?? operator is used for null coalescing in Dart."
+      },
+      {
+        "id": "q17",
+        "type": "MCQ",
+        "question": "What is the correct way to create a Set in Dart?",
+        "options": [
+          "Set<String> colors = {};",
+          "var colors = <String>{};",
+          "var colors = {};",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "explanation": "All three ways are correct for creating sets in Dart."
+      },
+      {
+        "id": "q18",
+        "type": "MCQ",
+        "question": "Which keyword is used for asynchronous programming in Dart?",
+        "options": [
+          "async",
+          "await",
+          "Future",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Dart uses async, await, and Future for asynchronous programming."
+      },
+      {
+        "id": "q19",
+        "type": "MCQ",
+        "question": "What is the correct syntax for a named parameter in Dart?",
+        "options": [
+          "void greet({String name}) { }",
+          "void greet({required String name}) { }",
+          "Both A and B",
+          "None of the above"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Both optional and required named parameters are valid in Dart."
+      },
+      {
+        "id": "q20",
+        "type": "MCQ",
+        "question": "Which method is used to iterate over a Map?",
+        "options": [
+          "forEach()",
+          "for (var entry in map.entries)",
+          "Both A and B",
+          "None of the above"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Both forEach() and for-in loops can be used to iterate over maps."
+      },
+      {
+        "id": "q21",
+        "type": "MCQ",
+        "question": "What is the correct way to create a constructor in Dart?",
+        "options": [
+          "ClassName(this.param);",
+          "ClassName(param) { this.param = param; }",
+          "Both A and B",
+          "None of the above"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Both shorthand and traditional constructor syntax are valid in Dart."
+      },
+      {
+        "id": "q22",
+        "type": "MCQ",
+        "question": "Which keyword is used to prevent a class from being extended?",
+        "options": [
+          "final",
+          "sealed",
+          "abstract",
+          "None of the above"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 'final' keyword prevents a class from being extended in Dart."
+      },
+      {
+        "id": "q23",
+        "type": "MCQ",
+        "question": "What is the correct syntax for a switch statement in Dart?",
+        "options": [
+          "switch (value) { case 1: break; }",
+          "switch (value) { case 1: break; default: break; }",
+          "Both A and B",
+          "None of the above"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Both switch statements with and without default cases are valid in Dart."
+      },
+      {
+        "id": "q24",
+        "type": "MCQ",
+        "question": "Which operator is used for type casting in Dart?",
+        "options": [
+          "as",
+          "is",
+          "!",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "explanation": "Dart uses 'as' for casting, 'is' for type checking, and '!' for null assertion."
+      },
+      {
+        "id": "q25",
+        "type": "MCQ",
+        "question": "What is the correct way to create a private variable in Dart?",
+        "options": [
+          "private var name;",
+          "_name",
+          "var _name;",
+          "Both B and C"
+        ],
+        "correctAnswer": 3,
+        "explanation": "In Dart, variables starting with underscore (_) are private."
+      },
+      {
+        "id": "q26",
+        "type": "MCQ",
+        "question": "Which keyword is used to create a mixin in Dart?",
+        "options": [
+          "mixin",
+          "class",
+          "interface",
+          "None of the above"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 'mixin' keyword is used to create mixins in Dart."
+      },
+      {
+        "id": "q27",
+        "type": "MCQ",
+        "question": "What is the correct syntax for a factory constructor?",
+        "options": [
+          "factory ClassName() { return ClassName._(); }",
+          "factory ClassName() => ClassName._();",
+          "Both A and B",
+          "None of the above"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Both block and arrow function syntax are valid for factory constructors."
+      },
+      {
+        "id": "q28",
+        "type": "MCQ",
+        "question": "Which method is used to convert a String to an int?",
+        "options": [
+          "int.parse()",
+          "int.tryParse()",
+          "Both A and B",
+          "None of the above"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Both int.parse() and int.tryParse() can be used to convert strings to integers."
+      },
+      {
+        "id": "q29",
+        "type": "MCQ",
+        "question": "What is the correct way to create a Stream in Dart?",
+        "options": [
+          "Stream<String> stream = Stream.empty();",
+          "var stream = Stream<String>.empty();",
+          "Both A and B",
+          "None of the above"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Both explicit and implicit type declarations are valid for streams."
+      },
+      {
+        "id": "q30",
+        "type": "MCQ",
+        "question": "Which keyword is used to create an extension in Dart?",
+        "options": [
+          "extension",
+          "extend",
+          "mixin",
+          "None of the above"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 'extension' keyword is used to create extensions in Dart."
+      }
+    ]
+  }
+]

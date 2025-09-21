@@ -1,0 +1,112 @@
+[
+  {
+    "id": "1",
+    "title": "Introduction to Dart",
+    "description": "Learn the basics of Dart programming language, its history, and why it's popular with Flutter.",
+    "level": "Beginner",
+    "lessons": ["1", "2"],
+    "quizzes": ["1"],
+    "color": "#6A1B9A",
+    "icon": "play_circle",
+    "estimatedTime": "2-3 hours"
+  },
+  {
+    "id": "2",
+    "title": "Dart Basics",
+    "description": "Master variables, data types, operators, and comments - the building blocks of Dart programming.",
+    "level": "Beginner",
+    "lessons": ["3", "4", "5"],
+    "quizzes": ["2"],
+    "color": "#6A1B9A",
+    "icon": "code",
+    "estimatedTime": "3-4 hours"
+  },
+  {
+    "id": "3",
+    "title": "Control Flow",
+    "description": "Learn conditional statements, loops, and how to control the flow of your Dart programs.",
+    "level": "Beginner",
+    "lessons": ["6", "7"],
+    "quizzes": ["3"],
+    "color": "#6A1B9A",
+    "icon": "settings",
+    "estimatedTime": "3-4 hours"
+  },
+  {
+    "id": "4",
+    "title": "Functions",
+    "description": "Understand how to create and use functions, including parameters and arrow functions.",
+    "level": "Beginner",
+    "lessons": ["8", "9"],
+    "quizzes": ["4"],
+    "color": "#6A1B9A",
+    "icon": "functions",
+    "estimatedTime": "3-4 hours"
+  },
+  {
+    "id": "5",
+    "title": "Collections",
+    "description": "Work with Lists, Sets, and Maps - the essential data structures in Dart.",
+    "level": "Beginner",
+    "lessons": ["10", "11", "12"],
+    "quizzes": ["5"],
+    "color": "#6A1B9A",
+    "icon": "list",
+    "estimatedTime": "4-5 hours"
+  },
+  {
+    "id": "6",
+    "title": "Object-Oriented Programming",
+    "description": "Learn classes, objects, inheritance, and other OOP concepts in Dart.",
+    "level": "Intermediate",
+    "lessons": [],
+    "quizzes": ["6"],
+    "color": "#6A1B9A",
+    "icon": "account_tree",
+    "estimatedTime": "5-6 hours"
+  },
+  {
+    "id": "7",
+    "title": "Error Handling",
+    "description": "Master exception handling with try-catch blocks and custom error management.",
+    "level": "Intermediate",
+    "lessons": [],
+    "quizzes": ["7"],
+    "color": "#6A1B9A",
+    "icon": "error",
+    "estimatedTime": "2-3 hours"
+  },
+  {
+    "id": "8",
+    "title": "Null Safety",
+    "description": "Understand Dart's null safety features and how to handle nullable types.",
+    "level": "Intermediate",
+    "lessons": [],
+    "quizzes": ["8"],
+    "color": "#6A1B9A",
+    "icon": "security",
+    "estimatedTime": "2-3 hours"
+  },
+  {
+    "id": "9",
+    "title": "Async Programming",
+    "description": "Introduction to asynchronous programming with Futures and async/await.",
+    "level": "Intermediate",
+    "lessons": [],
+    "quizzes": ["9"],
+    "color": "#6A1B9A",
+    "icon": "schedule",
+    "estimatedTime": "3-4 hours"
+  },
+  {
+    "id": "10",
+    "title": "Mini Projects",
+    "description": "Apply your Dart knowledge by building practical projects and applications.",
+    "level": "Advanced",
+    "lessons": [],
+    "quizzes": ["10"],
+    "color": "#6A1B9A",
+    "icon": "build",
+    "estimatedTime": "6-8 hours"
+  }
+]
