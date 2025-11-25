@@ -4,7 +4,6 @@ import '../services/connectivity_service.dart';
 import '../services/data_service.dart';
 import '../services/admob_service.dart';
 import '../utils/app_theme.dart';
-import 'internet_required_screen.dart';
 import 'home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -62,25 +61,16 @@ class _SplashScreenState extends State<SplashScreen>
       // Wait for minimum splash duration
       await Future.delayed(const Duration(seconds: 3));
 
-      // Check internet connectivity
-      final hasInternet = await ConnectivityService().hasInternetConnection();
-
       if (mounted) {
-        if (hasInternet) {
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => const HomeScreen()),
-          );
-        } else {
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => const InternetRequiredScreen()),
-          );
-        }
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
+        );
       }
     } catch (e) {
       print('Error initializing app: $e');
       if (mounted) {
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const InternetRequiredScreen()),
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
         );
       }
     }

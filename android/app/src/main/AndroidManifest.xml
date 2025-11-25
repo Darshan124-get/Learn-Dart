@@ -6,12 +6,12 @@
     <application
         android:label="Learn Dart"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         
         <!-- AdMob App ID -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-5165221633271822~7740108112"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

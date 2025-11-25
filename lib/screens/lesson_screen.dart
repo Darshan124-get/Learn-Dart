@@ -6,6 +6,8 @@ import '../models/lesson.dart';
 import '../models/module.dart';
 import '../services/data_service.dart';
 import '../services/admob_service.dart';
+import '../services/connectivity_service.dart';
+import '../config/ad_config.dart';
 import '../utils/app_theme.dart';
 import '../widgets/navigation_drawer.dart';
 import 'quiz_screen.dart';
@@ -32,14 +34,20 @@ class _LessonScreenState extends State<LessonScreen> {
   Module? _module;
   List<Lesson> _moduleLessons = [];
   int _currentLessonIndex = 0;
-  BannerAd? _bannerAd;
-  bool _isBannerAdReady = false;
+  BannerAd? _centerBannerAd;
+  BannerAd? _bottomBannerAd;
+  bool _isCenterBannerAdReady = false;
+  bool _isBottomBannerAdReady = false;
 
   @override
   void initState() {
     super.initState();
     _loadLessonData();
     _loadBannerAd();
+    // Register current context for connectivity monitoring
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ConnectivityService().setCurrentContext(context);
+    });
   }
 
   void _loadLessonData() {
@@ -56,24 +64,93 @@ class _LessonScreenState extends State<LessonScreen> {
     setState(() {});
   }
 
-  void _loadBannerAd() {
-    _bannerAd = BannerAd(
-      adUnitId: 'ca-app-pub-3940256099942544/6300978111',
+  Future<void> _loadBannerAd() async {
+    print('Starting to load banner ads...');
+    
+    // Check internet connectivity before loading ads
+    final hasInternet = await ConnectivityService().checkInternetAndShowRequiredScreen();
+    print('Internet available: $hasInternet');
+    
+    if (!hasInternet) {
+      print('No internet connection, skipping ad load');
+      return;
+    }
+
+    // Load center banner ad
+    await _loadCenterBannerAd();
+    
+    // Wait a bit before loading the second ad
+    await Future.delayed(const Duration(milliseconds: 500));
+    
+    // Load bottom banner ad
+    await _loadBottomBannerAd();
+    
+    // Retry failed ads after 3 seconds
+    Future.delayed(const Duration(seconds: 3), () {
+      if (!_isCenterBannerAdReady && _centerBannerAd != null) {
+        print('Retrying center banner ad...');
+        _centerBannerAd!.load();
+      }
+      if (!_isBottomBannerAdReady && _bottomBannerAd != null) {
+        print('Retrying bottom banner ad...');
+        _bottomBannerAd!.load();
+      }
+    });
+  }
+
+  Future<void> _loadCenterBannerAd() async {
+    print('Creating center BannerAd...');
+    
+    _centerBannerAd = BannerAd(
+      adUnitId: AdConfig.getBannerAdUnitId2(), // Different test ad unit
       size: AdSize.banner,
       request: const AdRequest(),
       listener: BannerAdListener(
         onAdLoaded: (ad) {
+          print('✅ Center banner ad loaded successfully!');
           setState(() {
-            _isBannerAdReady = true;
+            _isCenterBannerAdReady = true;
           });
         },
         onAdFailedToLoad: (ad, error) {
-          print('Banner ad failed to load: $error');
+          print('❌ Center banner ad failed to load: $error');
+          print('Error code: ${error.code}, Message: ${error.message}');
+          setState(() {
+            _isCenterBannerAdReady = false;
+          });
+          // Don't dispose immediately, keep the ad instance for retry
+        },
+      ),
+    );
+    
+    _centerBannerAd!.load();
+  }
+
+  Future<void> _loadBottomBannerAd() async {
+    print('Creating bottom BannerAd...');
+    
+    _bottomBannerAd = BannerAd(
+      adUnitId: AdConfig.getBannerAdUnitId(), // Test ad unit
+      size: AdSize.banner,
+      request: const AdRequest(),
+      listener: BannerAdListener(
+        onAdLoaded: (ad) {
+          print('✅ Bottom banner ad loaded successfully!');
+          setState(() {
+            _isBottomBannerAdReady = true;
+          });
+        },
+        onAdFailedToLoad: (ad, error) {
+          print('❌ Bottom banner ad failed to load: $error');
+          setState(() {
+            _isBottomBannerAdReady = false;
+          });
           ad.dispose();
         },
       ),
     );
-    _bannerAd!.load();
+    
+    _bottomBannerAd!.load();
   }
 
   void _goToNextLesson() {
@@ -125,7 +202,8 @@ class _LessonScreenState extends State<LessonScreen> {
 
   @override
   void dispose() {
-    _bannerAd?.dispose();
+    _centerBannerAd?.dispose();
+    _bottomBannerAd?.dispose();
     super.dispose();
   }
 
@@ -200,6 +278,47 @@ class _LessonScreenState extends State<LessonScreen> {
                       _currentLesson!.content,
                     ),
                   
+                  // Center Banner Ad
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 16),
+                    child: Container(
+                      width: double.infinity,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: _isCenterBannerAdReady ? Colors.grey[100] : Colors.orange[100],
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                          color: _isCenterBannerAdReady ? Colors.grey[300]! : Colors.orange[300]!,
+                          width: 2,
+                        ),
+                      ),
+                      child: _isCenterBannerAdReady && _centerBannerAd != null
+                          ? AdWidget(ad: _centerBannerAd!)
+                          : Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    _isCenterBannerAdReady ? Icons.check_circle : Icons.error,
+                                    color: _isCenterBannerAdReady ? Colors.green : Colors.orange,
+                                    size: 20,
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    _isCenterBannerAdReady 
+                                        ? 'Center Ad Loaded' 
+                                        : 'Center Ad Loading...',
+                                    style: TextStyle(
+                                      color: _isCenterBannerAdReady ? Colors.green : Colors.orange,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                    ),
+                  ),
+                  
                   // Explanation
                   if (_currentLesson!.explanation.isNotEmpty)
                     _buildContentCard(
@@ -225,19 +344,52 @@ class _LessonScreenState extends State<LessonScreen> {
                   if (_currentLesson!.keyPoints.isNotEmpty)
                     _buildKeyPointsCard(),
                   
+                  // Bottom Banner Ad
+                  Container(
+                    margin: const EdgeInsets.only(top: 16, bottom: 8),
+                    child: Container(
+                      width: double.infinity,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: _isBottomBannerAdReady ? Colors.grey[100] : Colors.blue[100],
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                          color: _isBottomBannerAdReady ? Colors.grey[300]! : Colors.blue[300]!,
+                          width: 2,
+                        ),
+                      ),
+                      child: _isBottomBannerAdReady && _bottomBannerAd != null
+                          ? AdWidget(ad: _bottomBannerAd!)
+                          : Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    _isBottomBannerAdReady ? Icons.check_circle : Icons.info,
+                                    color: _isBottomBannerAdReady ? Colors.green : Colors.blue,
+                                    size: 20,
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    _isBottomBannerAdReady 
+                                        ? 'Bottom Ad Loaded' 
+                                        : 'Bottom Ad Loading...',
+                                    style: TextStyle(
+                                      color: _isBottomBannerAdReady ? Colors.green : Colors.blue,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                    ),
+                  ),
+                  
                   const SizedBox(height: 16),
                 ],
               ),
             ),
           ),
-          
-          // Banner Ad
-          if (_isBannerAdReady && _bannerAd != null)
-            Container(
-              width: double.infinity,
-              height: _bannerAd!.size.height.toDouble(),
-              child: AdWidget(ad: _bannerAd!),
-            ),
           
           // Navigation Buttons
           Container(

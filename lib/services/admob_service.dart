@@ -6,7 +6,7 @@ class AdMobService {
   AdMobService._internal();
 
   // Test Ad Unit IDs - Replace with your actual Ad Unit IDs
-  static const String _bannerAdUnitId = 'ca-app-pub-3940256099942544/6300978111';
+  static const String _bannerAdUnitId = 'ca-app-pub-5165221633271822/2244524260';
   
   // Production Ad Unit IDs (replace with your actual IDs)
   // static const String _bannerAdUnitId = 'ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX';

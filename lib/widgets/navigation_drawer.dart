@@ -7,6 +7,7 @@ import '../screens/quiz_screen.dart';
 import '../screens/quiz_menu_screen.dart';
 import '../screens/project_screen.dart';
 import '../screens/glossary_screen.dart';
+import '../screens/privacy_policy_screen.dart';
 
 class CustomNavigationDrawer extends StatelessWidget {
   const CustomNavigationDrawer({super.key});
@@ -153,6 +154,17 @@ class CustomNavigationDrawer extends StatelessWidget {
                   onTap: () {
                     Navigator.pop(context);
                     // Show remove ads dialog or navigate to premium
+                  },
+                ),
+                _buildMenuItem(
+                  icon: Icons.privacy_tip_outlined,
+                  title: 'Privacy Policy',
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const PrivacyPolicyScreen()),
+                    );
                   },
                 ),
                 _buildMenuItem(

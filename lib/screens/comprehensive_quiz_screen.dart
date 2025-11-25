@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import '../services/connectivity_service.dart';
+import '../config/ad_config.dart';
 import '../utils/app_theme.dart';
 import '../widgets/navigation_drawer.dart';
 
@@ -55,20 +57,34 @@ class _ComprehensiveQuizScreenState extends State<ComprehensiveQuizScreen> {
     }
   }
 
-  void _loadBannerAd() {
+  Future<void> _loadBannerAd() async {
+    // Check internet connectivity before loading ads
+    final hasInternet = await ConnectivityService().checkInternetAndShowRequiredScreen();
+    if (!hasInternet) return;
+
     _bannerAd = BannerAd(
-      adUnitId: 'ca-app-pub-3940256099942544/6300978111',
+      adUnitId: AdConfig.getBannerAdUnitId(),
       size: AdSize.banner,
       request: const AdRequest(),
       listener: BannerAdListener(
         onAdLoaded: (ad) {
+          print('Banner ad loaded successfully');
           setState(() {
             _isBannerAdReady = true;
           });
         },
         onAdFailedToLoad: (ad, error) {
           print('Banner ad failed to load: $error');
+          setState(() {
+            _isBannerAdReady = false;
+          });
           ad.dispose();
+        },
+        onAdOpened: (ad) {
+          print('Banner ad opened');
+        },
+        onAdClosed: (ad) {
+          print('Banner ad closed');
         },
       ),
     );
@@ -314,6 +330,24 @@ class _ComprehensiveQuizScreenState extends State<ComprehensiveQuizScreen> {
                       ),
                     );
                   }).toList(),
+                  
+                  const SizedBox(height: 24),
+                  
+                  // Center Banner Ad
+                  if (_isBannerAdReady && _bannerAd != null)
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 16),
+                      child: Container(
+                        width: double.infinity,
+                        height: _bannerAd!.size.height.toDouble(),
+                        decoration: BoxDecoration(
+                          color: Colors.grey[100],
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Colors.grey[300]!),
+                        ),
+                        child: AdWidget(ad: _bannerAd!),
+                      ),
+                    ),
                   
                   const SizedBox(height: 24),
                   

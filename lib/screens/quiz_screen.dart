@@ -4,6 +4,8 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../models/quiz.dart';
 import '../services/data_service.dart';
 import '../services/admob_service.dart';
+import '../services/connectivity_service.dart';
+import '../config/ad_config.dart';
 import '../utils/app_theme.dart';
 import '../widgets/navigation_drawer.dart';
 
@@ -29,14 +31,20 @@ class _QuizScreenState extends State<QuizScreen> {
   int? _selectedAnswer;
   bool _showResult = false;
   bool _quizCompleted = false;
-  BannerAd? _bannerAd;
-  bool _isBannerAdReady = false;
+  BannerAd? _centerBannerAd;
+  BannerAd? _bottomBannerAd;
+  bool _isCenterBannerAdReady = false;
+  bool _isBottomBannerAdReady = false;
 
   @override
   void initState() {
     super.initState();
     _loadQuiz();
     _loadBannerAd();
+    // Register current context for connectivity monitoring
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ConnectivityService().setCurrentContext(context);
+    });
   }
 
   void _loadQuiz() {
@@ -44,24 +52,71 @@ class _QuizScreenState extends State<QuizScreen> {
     setState(() {});
   }
 
-  void _loadBannerAd() {
-    _bannerAd = BannerAd(
-      adUnitId: 'ca-app-pub-3940256099942544/6300978111',
+  Future<void> _loadBannerAd() async {
+    // Check internet connectivity before loading ads
+    final hasInternet = await ConnectivityService().checkInternetAndShowRequiredScreen();
+    if (!hasInternet) return;
+
+    _centerBannerAd = BannerAd(
+      adUnitId: AdConfig.getBannerAdUnitId2(),
       size: AdSize.banner,
       request: const AdRequest(),
       listener: BannerAdListener(
         onAdLoaded: (ad) {
+          print('✅ Center banner ad loaded successfully!');
           setState(() {
-            _isBannerAdReady = true;
+            _isCenterBannerAdReady = true;
           });
         },
         onAdFailedToLoad: (ad, error) {
-          print('Banner ad failed to load: $error');
+          print('❌ Center banner ad failed to load: $error');
+          setState(() {
+            _isCenterBannerAdReady = false;
+          });
           ad.dispose();
+        },
+        onAdOpened: (ad) {
+          print('Banner ad opened');
+        },
+        onAdClosed: (ad) {
+          print('Banner ad closed');
         },
       ),
     );
-    _bannerAd!.load();
+    _centerBannerAd!.load();
+    
+    // Wait a bit before loading the second ad
+    await Future.delayed(const Duration(milliseconds: 500));
+    
+    // Load bottom banner ad
+    _bottomBannerAd = BannerAd(
+      adUnitId: AdConfig.getBannerAdUnitId(),
+      size: AdSize.banner,
+      request: const AdRequest(),
+      listener: BannerAdListener(
+        onAdLoaded: (ad) {
+          print('✅ Bottom banner ad loaded successfully!');
+          setState(() {
+            _isBottomBannerAdReady = true;
+          });
+        },
+        onAdFailedToLoad: (ad, error) {
+          print('❌ Bottom banner ad failed to load: $error');
+          setState(() {
+            _isBottomBannerAdReady = false;
+          });
+          ad.dispose();
+        },
+        onAdOpened: (ad) {
+          print('Bottom banner ad opened');
+        },
+        onAdClosed: (ad) {
+          print('Bottom banner ad closed');
+        },
+      ),
+    );
+    
+    _bottomBannerAd!.load();
   }
 
   void _selectAnswer(int answerIndex) {
@@ -103,7 +158,8 @@ class _QuizScreenState extends State<QuizScreen> {
 
   @override
   void dispose() {
-    _bannerAd?.dispose();
+    _centerBannerAd?.dispose();
+    _bottomBannerAd?.dispose();
     super.dispose();
   }
 
@@ -313,6 +369,41 @@ class _QuizScreenState extends State<QuizScreen> {
                     );
                   }),
                   
+                  // Center Banner Ad
+                  if (_isCenterBannerAdReady && _centerBannerAd != null)
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 16),
+                      child: Container(
+                        width: double.infinity,
+                        height: _centerBannerAd!.size.height.toDouble(),
+                        decoration: BoxDecoration(
+                          color: Colors.grey[100],
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Colors.grey[300]!),
+                        ),
+                        child: AdWidget(ad: _centerBannerAd!),
+                      ),
+                    )
+                  else if (_centerBannerAd != null)
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 16),
+                      child: Container(
+                        width: double.infinity,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Colors.grey[300]!),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'Loading Ad...',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                        ),
+                      ),
+                    ),
+                  
                   // Explanation
                   if (_showResult && currentQuestion.explanation.isNotEmpty)
                     Card(
@@ -349,18 +440,45 @@ class _QuizScreenState extends State<QuizScreen> {
                         ),
                       ),
                     ),
+                  
+                  // Bottom Banner Ad
+                  if (_isBottomBannerAdReady && _bottomBannerAd != null)
+                    Container(
+                      margin: const EdgeInsets.only(top: 16, bottom: 8),
+                      child: Container(
+                        width: double.infinity,
+                        height: _bottomBannerAd!.size.height.toDouble(),
+                        decoration: BoxDecoration(
+                          color: Colors.grey[100],
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Colors.grey[300]!),
+                        ),
+                        child: AdWidget(ad: _bottomBannerAd!),
+                      ),
+                    )
+                  else if (_bottomBannerAd != null)
+                    Container(
+                      margin: const EdgeInsets.only(top: 16, bottom: 8),
+                      child: Container(
+                        width: double.infinity,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Colors.grey[300]!),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'Loading Ad...',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                        ),
+                      ),
+                    ),
                 ],
               ),
             ),
           ),
-          
-          // Banner Ad
-          if (_isBannerAdReady && _bannerAd != null)
-            Container(
-              width: double.infinity,
-              height: _bannerAd!.size.height.toDouble(),
-              child: AdWidget(ad: _bannerAd!),
-            ),
           
           // Next Button
           if (_showResult)
@@ -537,12 +655,12 @@ class _QuizScreenState extends State<QuizScreen> {
             ),
           ),
           
-          // Banner Ad
-          if (_isBannerAdReady && _bannerAd != null)
+          // Bottom Banner Ad
+          if (_isBottomBannerAdReady && _bottomBannerAd != null)
             Container(
               width: double.infinity,
-              height: _bannerAd!.size.height.toDouble(),
-              child: AdWidget(ad: _bannerAd!),
+              height: _bottomBannerAd!.size.height.toDouble(),
+              child: AdWidget(ad: _bottomBannerAd!),
             ),
         ],
       ),

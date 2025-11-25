@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../models/module.dart';
 import '../services/data_service.dart';
+import '../services/connectivity_service.dart';
 import '../utils/app_theme.dart';
 import '../widgets/module_card.dart';
 import '../widgets/navigation_drawer.dart';
@@ -26,6 +27,10 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     _loadModules();
+    // Register current context for connectivity monitoring
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ConnectivityService().setCurrentContext(context);
+    });
   }
 
   void _loadModules() {

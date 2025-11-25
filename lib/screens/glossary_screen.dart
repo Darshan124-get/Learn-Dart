@@ -4,6 +4,8 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../models/glossary_item.dart';
 import '../services/data_service.dart';
 import '../services/admob_service.dart';
+import '../services/connectivity_service.dart';
+import '../config/ad_config.dart';
 import '../utils/app_theme.dart';
 import '../widgets/navigation_drawer.dart';
 
@@ -41,20 +43,34 @@ class _GlossaryScreenState extends State<GlossaryScreen> {
     setState(() {});
   }
 
-  void _loadBannerAd() {
+  Future<void> _loadBannerAd() async {
+    // Check internet connectivity before loading ads
+    final hasInternet = await ConnectivityService().checkInternetAndShowRequiredScreen();
+    if (!hasInternet) return;
+
     _bannerAd = BannerAd(
-      adUnitId: 'ca-app-pub-3940256099942544/6300978111',
+      adUnitId: AdConfig.getBannerAdUnitId(),
       size: AdSize.banner,
       request: const AdRequest(),
       listener: BannerAdListener(
         onAdLoaded: (ad) {
+          print('Banner ad loaded successfully');
           setState(() {
             _isBannerAdReady = true;
           });
         },
         onAdFailedToLoad: (ad, error) {
           print('Banner ad failed to load: $error');
+          setState(() {
+            _isBannerAdReady = false;
+          });
           ad.dispose();
+        },
+        onAdOpened: (ad) {
+          print('Banner ad opened');
+        },
+        onAdClosed: (ad) {
+          print('Banner ad closed');
         },
       ),
     );
@@ -187,21 +203,52 @@ class _GlossaryScreenState extends State<GlossaryScreen> {
                 ? _buildEmptyState()
                 : ListView.builder(
                     padding: const EdgeInsets.all(16),
-                    itemCount: _filteredItems.length,
+                    itemCount: _filteredItems.length + (_isBannerAdReady && _bannerAd != null ? 2 : 0),
                     itemBuilder: (context, index) {
-                      final item = _filteredItems[index];
+                      // Add banner ad after first few items
+                      if (_isBannerAdReady && _bannerAd != null && index == 3) {
+                        return Container(
+                          margin: const EdgeInsets.symmetric(vertical: 16),
+                          child: Container(
+                            width: double.infinity,
+                            height: _bannerAd!.size.height.toDouble(),
+                            decoration: BoxDecoration(
+                              color: Colors.grey[100],
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(color: Colors.grey[300]!),
+                            ),
+                            child: AdWidget(ad: _bannerAd!),
+                          ),
+                        );
+                      }
+                      
+                      // Add banner ad near the end
+                      if (_isBannerAdReady && _bannerAd != null && index == _filteredItems.length + 1) {
+                        return Container(
+                          margin: const EdgeInsets.symmetric(vertical: 16),
+                          child: Container(
+                            width: double.infinity,
+                            height: _bannerAd!.size.height.toDouble(),
+                            decoration: BoxDecoration(
+                              color: Colors.grey[100],
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(color: Colors.grey[300]!),
+                            ),
+                            child: AdWidget(ad: _bannerAd!),
+                          ),
+                        );
+                      }
+                      
+                      // Adjust index for banner ads
+                      final adjustedIndex = _isBannerAdReady && _bannerAd != null && index > 3 ? index - 1 : index;
+                      
+                      if (adjustedIndex >= _filteredItems.length) return const SizedBox.shrink();
+                      
+                      final item = _filteredItems[adjustedIndex];
                       return _buildGlossaryItem(item);
                     },
                   ),
           ),
-          
-          // Banner Ad
-          if (_isBannerAdReady && _bannerAd != null)
-            Container(
-              width: double.infinity,
-              height: _bannerAd!.size.height.toDouble(),
-              child: AdWidget(ad: _bannerAd!),
-            ),
         ],
       ),
     );

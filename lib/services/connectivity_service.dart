@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/material.dart';
+import '../screens/internet_required_screen.dart';
 
 class ConnectivityService {
   static final ConnectivityService _instance = ConnectivityService._internal();
@@ -9,6 +11,7 @@ class ConnectivityService {
   final Connectivity _connectivity = Connectivity();
   StreamSubscription<List<ConnectivityResult>>? _connectivitySubscription;
   bool _isConnected = false;
+  BuildContext? _currentContext;
 
   bool get isConnected => _isConnected;
 
@@ -36,9 +39,33 @@ class ConnectivityService {
     _isConnected = result.isNotEmpty && !result.contains(ConnectivityResult.none);
   }
 
+  void setCurrentContext(BuildContext context) {
+    _currentContext = context;
+  }
+
+  void _showInternetRequiredScreen() {
+    if (_currentContext != null) {
+      Navigator.of(_currentContext!).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const InternetRequiredScreen()),
+        (route) => false,
+      );
+    }
+  }
+
   Future<bool> hasInternetConnection() async {
     await _checkConnectivity();
     return _isConnected;
+  }
+
+  Future<bool> checkInternetAndShowRequiredScreen() async {
+    final hasInternet = await hasInternetConnection();
+    
+    if (!hasInternet && _currentContext != null) {
+      _showInternetRequiredScreen();
+      return false;
+    }
+    
+    return hasInternet;
   }
 
   void dispose() {
